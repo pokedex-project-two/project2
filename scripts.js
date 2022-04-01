@@ -10,11 +10,15 @@ fetch(pokedex.ApiUrl)
   .then(function (response) {
     return response.json();
   })
-  .then(function (jsonResult) {
-    console.log("It worked!", jsonResult);
+  .then(function (jsonResults) {
+    // console.log("It worked!", jsonResults); 
+    pokedex.displayPokemon(jsonResults);
   });
 
-
+pokedex.displayPokemon = function(data) {
+  console.log(data);
+  const ul = document.querySelector("ul");
+}
 
   //  Landing page with heading Pokedex
 
