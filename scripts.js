@@ -43,6 +43,8 @@ pokedexApp.init = function () {
 
 pokedexApp.init();
 
+// testing
+
 //  Landing page with heading Pokedex
 
 // An input form that allows users to choose pokemon from generation 1 by their Name from a dropdown list
