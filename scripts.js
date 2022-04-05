@@ -1,20 +1,51 @@
 
-// App object pokedex
-const pokedex = {};
+// App object pokedexApp
+const pokedexApp = {};
 
 // Initalize preset data
+pokedexApp.getGen1Pokemon = function () {
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=151/";
 
-pokedex.ApiUrl = "https://pokeapi.co/api/v2/pokemon/";
+  fetch(url)
+    .then(function (results) {
+      return results.json();
+    })
+    .then(function (jsonResults) {
+      console.log("It worked!", jsonResults);
+      pokedexApp.getThePokemon(jsonResults);
+    });
 
-fetch(pokedex.ApiUrl)
-  .then(function (response) {
-    return response.json();
+}
+
+pokedexApp.getThePokemon = function (pokemonArray) {
+  pokemonArray.results.forEach( function (pokemonObject) {
+    // console.log(pokemonObject);
+    pokedexApp.getPokemonDetails(pokemonObject);
   })
-  .then(function (jsonResult) {
-    console.log("It worked!", jsonResult);
-  });
+}
+
+pokedexApp.getPokemonDetails = function (pokemonObject){
+  const pokemon = pokemonObject.name
+
+  console.log (pokemon)
+  // fetch(pokemon)
+  // .then( function (results){
+  //   return results.json();
+  // }).then (function (pokeName){
+  //   console.log(pokeName)
+  // })
+}
 
 
+
+
+// init method to kick things off
+pokedexApp.init = function () {
+  console.log('init success');
+  pokedexApp.getGen1Pokemon();
+}
+
+pokedexApp.init();
 
   //  Landing page with heading Pokedex
 
@@ -36,6 +67,15 @@ fetch(pokedex.ApiUrl)
 
 
 
+// Psuedo for dropdown
+//  Grab names of all pokemon through the API
+//  Append these names into a div
+//  Make it into a form where users can select what pokemon they want to choose
+// when the user chooses, get their result (document.getElementByID)
+// Using this, append it into the fetch link (https://pokeapi.co/api/v2/pokemon/{result of users selection})
+// example would be pikachu -> https://pokeapi.co/api/v2/pokemon/{pikachu}
 
-
-
+// Psuedo for displaying pokemon
+// then using this fetch the new url of the api
+// this would give us information of the said pokemon
+// append specific data from the pokemon (id name sprite type) into something (ul or li)
