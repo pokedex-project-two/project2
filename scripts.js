@@ -43,7 +43,7 @@ pokedexApp.init = function () {
 
 pokedexApp.init();
 
-// testing 123
+// testing 1232323
 
 //  Landing page with heading Pokedex
 
