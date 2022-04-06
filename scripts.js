@@ -71,3 +71,5 @@ pokedexApp.init();
 // then using this fetch the new url of the api
 // this would give us information of the said pokemon
 // append specific data from the pokemon (id name sprite type) into something (ul or li)
+
+// MY COMMENT
