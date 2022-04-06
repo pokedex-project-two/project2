@@ -22,12 +22,6 @@ pokedexApp.getThePokemon = function (pokemonArray) {
     // console.log(pokemonObject);
     pokedexApp.getPokemonDetails(pokemonObject);
   })
-<<<<<<< HEAD
-  .then(function (jsonResults) {
-    // console.log("It worked!", jsonResults); 
-    pokedex.displayPokemon(jsonResults);
-  });
-=======
 }
 
 pokedexApp.getPokemonDetails = function (pokemonObject){
@@ -41,7 +35,6 @@ pokedexApp.getPokemonDetails = function (pokemonObject){
   //   console.log(pokeName)
   // })
 }
->>>>>>> 88e347575bce1d1ae9f6c034314b8337de497c86
 
 pokedex.displayPokemon = function(data) {
   console.log(data);
