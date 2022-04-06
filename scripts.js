@@ -1,4 +1,4 @@
-// App object pokedexApp
+// App object pokedexAppApp
 const pokedexApp = {};
 
 // Initalize preset data
@@ -10,11 +10,36 @@ pokedexApp.getGen1Pokemon = function () {
       return results.json();
     })
     .then(function (jsonResults) {
-      console.log("It worked!", jsonResults);
-      pokedexApp.getThePokemon(jsonResults);
+      jsonResults.results.forEach(function (poke) {
+        pokedexApp.pokeInfo(poke);
+      })
     });
 };
 
+pokedexApp.pokeInfo = function (poke) {
+  const pokeUrl = poke.url;
+  fetch(pokeUrl)
+    .then(results => results.json())
+    .then(function (kantoData) {
+      pokedexApp.displayPokemon(kantoData);
+    })
+}
+
+pokedexApp.displayPokemon = function (kantoData) {
+  const images = document.createElement("img");
+  images.src = kantoData.sprites.front_default;
+  images.alt = kantoData.name;
+  // console.log(images);
+  document.querySelector(".pokemon").appendChild(images);
+}
+
+  // fetch(pokemon)
+  // .then( function (results){
+  //   return results.json();
+  // }).then (function (pokeName){
+  //   console.log(pokeName)
+  // })
+=======
 pokedexApp.getThePokemon = function (pokemonArray) {
   pokemonArray.results.forEach(function (pokemonObject) {
     console.log(pokemonObject);
@@ -29,8 +54,6 @@ pokedexApp.getPokeNames = function (pokemonObject) {
   pokemonObject
 };
 
-
-
 // init method to kick things off
 pokedexApp.init = function () {
   console.log("init success");
@@ -39,6 +62,8 @@ pokedexApp.init = function () {
 
 pokedexApp.init();
 
+//  Landing page with heading pokedexApp
+=======
 // testing 1232323
 
 //  Landing page with heading Pokedex
@@ -69,3 +94,5 @@ pokedexApp.init();
 // then using this fetch the new url of the api
 // this would give us information of the said pokemon
 // append specific data from the pokemon (id name sprite type) into something (ul or li)
+
+// MY COMMENT
