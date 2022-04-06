@@ -39,7 +39,7 @@ pokedexApp.displayPokemon = function (kantoData) {
   // }).then (function (pokeName){
   //   console.log(pokeName)
   // })
-=======
+
 pokedexApp.getThePokemon = function (pokemonArray) {
   pokemonArray.results.forEach(function (pokemonObject) {
     console.log(pokemonObject);
@@ -63,7 +63,7 @@ pokedexApp.init = function () {
 pokedexApp.init();
 
 //  Landing page with heading pokedexApp
-=======
+
 // testing 1232323
 
 //  Landing page with heading Pokedex
