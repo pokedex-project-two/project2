@@ -1,4 +1,4 @@
-// App object pokedexApp
+// App object pokedexAppApp
 const pokedexApp = {};
 
 // Initalize preset data
@@ -10,22 +10,28 @@ pokedexApp.getGen1Pokemon = function () {
       return results.json();
     })
     .then(function (jsonResults) {
-      console.log("It worked!", jsonResults);
-      pokedexApp.getThePokemon(jsonResults);
+      jsonResults.results.forEach(function (poke) {
+        pokedexApp.pokeInfo(poke);
+      })
     });
 };
 
-pokedexApp.getThePokemon = function (pokemonArray) {
-  pokemonArray.results.forEach(function (pokemonObject) {
-    // console.log(pokemonObject);
-    pokedexApp.getPokemonDetails(pokemonObject);
-  });
-};
+pokedexApp.pokeInfo = function (poke) {
+  const pokeUrl = poke.url;
+  fetch(pokeUrl)
+    .then(results => results.json())
+    .then(function (kantoData) {
+      pokedexApp.displayPokemon(kantoData);
+    })
+}
 
-pokedexApp.getPokemonDetails = function (pokemonObject) {
-  const pokemon = pokemonObject.name;
-
-  console.log(pokemon);
+pokedexApp.displayPokemon = function (kantoData) {
+  const images = document.createElement("img");
+  images.src = kantoData.sprites.front_default;
+  images.alt = kantoData.name;
+  // console.log(images);
+  document.querySelector(".pokemon").appendChild(images);
+}
 
   // fetch(pokemon)
   // .then( function (results){
@@ -33,7 +39,6 @@ pokedexApp.getPokemonDetails = function (pokemonObject) {
   // }).then (function (pokeName){
   //   console.log(pokeName)
   // })
-};
 
 // init method to kick things off
 pokedexApp.init = function () {
@@ -43,7 +48,7 @@ pokedexApp.init = function () {
 
 pokedexApp.init();
 
-//  Landing page with heading Pokedex
+//  Landing page with heading pokedexApp
 
 // An input form that allows users to choose pokemon from generation 1 by their Name from a dropdown list
 // Once user chooses pokemon from dropdown list, user submits it (eventListener)
