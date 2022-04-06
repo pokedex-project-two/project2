@@ -30,7 +30,7 @@ pokedexApp.displayPokemon = function (kantoData) {
   images.src = kantoData.sprites.front_default;
   images.alt = kantoData.name;
   // console.log(images);
-  document.querySelector(".pokemon").appendChild(images);
+  document.querySelector("#pokemon").appendChild(images);
 }
 
   // fetch(pokemon)
