@@ -25,7 +25,8 @@ pokedexApp.getThePokemon = function (pokemonArray) {
 pokedexApp.getPokeNames = function (pokemonObject) {
   const pokemon = pokemonObject.name;
   // console.log(pokemon);
-
+  const pokeName = document.createElement('p');
+  pokemonObject
 };
 
 
