@@ -1,4 +1,3 @@
-
 // App object pokedexApp
 const pokedexApp = {};
 
@@ -14,61 +13,51 @@ pokedexApp.getGen1Pokemon = function () {
       console.log("It worked!", jsonResults);
       pokedexApp.getThePokemon(jsonResults);
     });
-
-}
+};
 
 pokedexApp.getThePokemon = function (pokemonArray) {
-  pokemonArray.results.forEach( function (pokemonObject) {
+  pokemonArray.results.forEach(function (pokemonObject) {
     // console.log(pokemonObject);
     pokedexApp.getPokemonDetails(pokemonObject);
-  })
-}
+  });
+};
 
-pokedexApp.getPokemonDetails = function (pokemonObject){
-  const pokemon = pokemonObject.name
+pokedexApp.getPokemonDetails = function (pokemonObject) {
+  const pokemon = pokemonObject.name;
 
-  console.log (pokemon)
+  console.log(pokemon);
+
   // fetch(pokemon)
   // .then( function (results){
   //   return results.json();
   // }).then (function (pokeName){
   //   console.log(pokeName)
   // })
-}
-
-pokedex.displayPokemon = function(data) {
-  console.log(data);
-  const ul = document.querySelector("ul");
-}
-
+};
 
 // init method to kick things off
 pokedexApp.init = function () {
-  console.log('init success');
+  console.log("init success");
   pokedexApp.getGen1Pokemon();
-}
+};
 
 pokedexApp.init();
 
-  //  Landing page with heading Pokedex
+//  Landing page with heading Pokedex
 
+// An input form that allows users to choose pokemon from generation 1 by their Name from a dropdown list
+// Once user chooses pokemon from dropdown list, user submits it (eventListener)
+// Method (getUserQuery) to update varaible (userQuery) based on the user input
+// Store user input in (userQuery)
 
-  // An input form that allows users to choose pokemon from generation 1 by their Name from a dropdown list
-  // Once user chooses pokemon from dropdown list, user submits it (eventListener)
-  // Method (getUserQuery) to update varaible (userQuery) based on the user input
-  // Store user input in (userQuery)
+// Make AJAX request to retrieve information on Generation 1 pokemon
+// Create a method (getPokemon) to grab only the first generation of pokemon (151)
+// When successful, display results by appending the data to the details div
+// If API call fails, display an error message
 
-  // Make AJAX request to retrieve information on Generation 1 pokemon
-  // Create a method (getPokemon) to grab only the first generation of pokemon (151)
-  // When successful, display results by appending the data to the details div
-  // If API call fails, display an error message
+// based on user input, display the corresponding pokemon with the name or ID
 
-  // based on user input, display the corresponding pokemon with the name or ID
-
-  //  pokemon details displayed will be name, id, sprite, and type.
-
-
-
+//  pokemon details displayed will be name, id, sprite, and type.
 
 // Psuedo for dropdown
 //  Grab names of all pokemon through the API
