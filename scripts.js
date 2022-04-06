@@ -17,29 +17,24 @@ pokedexApp.getGen1Pokemon = function () {
 
 pokedexApp.getThePokemon = function (pokemonArray) {
   pokemonArray.results.forEach(function (pokemonObject) {
-    // console.log(pokemonObject);
-    pokedexApp.getPokemonDetails(pokemonObject);
+    console.log(pokemonObject);
+    pokedexApp.getPokeNames(pokemonObject);
   });
 };
 
-pokedexApp.getPokemonDetails = function (pokemonObject) {
+pokedexApp.getPokeNames = function (pokemonObject) {
   const pokemon = pokemonObject.name;
+  // console.log(pokemon);
 
-  console.log(pokemon);
-
-  // fetch(pokemon)
-  // .then( function (results){
-  //   return results.json();
-  // }).then (function (pokeName){
-  //   console.log(pokeName)
-  // })
 };
+
+
 
 // init method to kick things off
 pokedexApp.init = function () {
   console.log("init success");
   pokedexApp.getGen1Pokemon();
-};
+}
 
 pokedexApp.init();
 
