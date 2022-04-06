@@ -39,16 +39,34 @@ pokedexApp.displayPokemon = function (kantoData) {
   // }).then (function (pokeName){
   //   console.log(pokeName)
   // })
+=======
+pokedexApp.getThePokemon = function (pokemonArray) {
+  pokemonArray.results.forEach(function (pokemonObject) {
+    console.log(pokemonObject);
+    pokedexApp.getPokeNames(pokemonObject);
+  });
+};
+
+pokedexApp.getPokeNames = function (pokemonObject) {
+  const pokemon = pokemonObject.name;
+  // console.log(pokemon);
+  const pokeName = document.createElement('p');
+  pokemonObject
+};
 
 // init method to kick things off
 pokedexApp.init = function () {
   console.log("init success");
   pokedexApp.getGen1Pokemon();
-};
+}
 
 pokedexApp.init();
 
 //  Landing page with heading pokedexApp
+=======
+// testing 1232323
+
+//  Landing page with heading Pokedex
 
 // An input form that allows users to choose pokemon from generation 1 by their Name from a dropdown list
 // Once user chooses pokemon from dropdown list, user submits it (eventListener)
