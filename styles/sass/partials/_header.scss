@@ -1,0 +1,14 @@
+header {
+  background-image: url('../assets/pokemon-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+}
+
+.header-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 325px;
+}
