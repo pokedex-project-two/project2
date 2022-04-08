@@ -5,15 +5,94 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokedex</title>
+  <link rel="stylesheet" href="./styles/styles.css">
+  <script src="https://kit.fontawesome.com/192b4e22cf.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <h1>Test</h1>
+  <nav class="desktopNav">
+    <div class="wrapper">
+      <ul>
+        <li>
+          <a href="#home">Home</a>
+        </li>
+        <li>
+          <a href="#about">About</a>
+        </li>
+        <li>
+          <a href="#selectPokemon">Pokemon</a>
+        </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-  <section class="gallery">
-    <ul class="pokemon">
+  <header id="home">
+    <div class="wrapper">
+      <h1>Pokedex Generation 1</h1>
+    </div>
+  </header>
 
-    </ul>
-  </section>
-<script src="scripts.js"></script>
+  <main>
+    <section class="about" id="about">
+      <div class="wrapper">
+        <h2>About</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus nulla ipsa nisi voluptates qui expedita veritatis labore suscipit voluptatum? Beatae nesciunt nam fuga aspernatur veritatis ratione sequi ab a. Aliquam.
+        Harum deleniti cum eveniet incidunt eaque! Nulla numquam voluptatum, dicta minus impedit, iusto explicabo laudantium eligendi dolor officiis ea earum! Explicabo, sint culpa ipsum atque quisquam animi commodi deserunt alias!
+        Praesentium, magnam corporis mollitia rem quaerat accusamus adipisci provident similique saepe a illum neque, iste aliquid obcaecati odio cum odit dolor, consequatur aspernatur sed? Voluptas molestias ducimus vero explicabo placeat.
+        Officia quia ullam facere quidem, rerum nostrum dicta minus aliquam nulla recusandae totam corrupti. Autem ad numquam, sequi earum consectetur dolor magnam debitis doloribus aliquid assumenda aut laboriosam. Reprehenderit, cupiditate!
+        Quidem voluptates quis minus, laborum, minima consectetur at ipsa, vel nobis atque error impedit dolorem praesentium. Molestiae sapiente architecto delectus veritatis corporis, numquam aperiam nemo dolore incidunt nesciunt ratione officia?</p>
+      </div>
+    </section>
+
+    <section class="dropbox" id="selectPokemon">
+      <div class="wrapper">
+        <h2>Choose a pokemon!</h2>
+        <form action="">
+          <select name="pokemon" id="pokeDropbox">
+            <!-- Options are inputed from API -->
+          </select>
+        </form>
+        <ul id="pokemon">
+          <!-- Image of pokemon displayed depending on user input -->
+        </ul>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrapper">
+        <div class="socialIcons">
+          <a href="#">
+            <i class="fab fa-twitter" aria-hidden="true"></i>
+            <span class="sr-only">Link to Twitter</span>
+          </a>
+          <a href="#">
+            <i class="fab fa-pinterest" aria-hidden="true"></i>
+            <span class="sr-only">Link to Pinterest</span>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+            <span class="sr-only">Link to Instagram</span>
+          </a>
+          <a href="#">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+            <span class="sr-only">Link to Facebook</span>
+          </a>
+        </div>
+        <div class="contactEmail">
+          <h4>Gen1@pokemail.com</h4>
+        </div>
+        <div class="contactInfo">
+          <p>416-765-3666 (416-POKEMON)</p>
+          <p>151 Theverybest Rd</p>
+          <p>Toronto, ON</p>
+          <p>M3W2O0</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>Copyright 2022 Juno College of Technology</footer>
+  <script src="scripts.js"></script>
 </body>
 </html>
