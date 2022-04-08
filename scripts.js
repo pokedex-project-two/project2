@@ -2,36 +2,61 @@
 const pokedexApp = {};
 
 // Initalize preset data
-pokedexApp.getGen1Pokemon = function () {
-  const url = "https://pokeapi.co/api/v2/pokemon?limit=151/";
+
+pokedexApp.getGen1Pokemon = function (query) {
+  const url = new URL("https://pokeapi.co/api/v2/pokemon?limit=151/");
+
+  url.search = new URLSearchParams({
+    q: query
+  })
 
   fetch(url)
     .then(function (results) {
       return results.json();
     })
     .then(function (jsonResults) {
-      jsonResults.results.forEach(function (poke) {
-        pokedexApp.pokeInfo(poke);
+      jsonResults.results.forEach(function (kantoData) {
+        pokedexApp.pokeDropbox(kantoData);
+        // console.log(kantoData);
       })
+        pokedexApp.pokeInfo(jsonResults);
     });
 };
+
+pokedexApp.pokeDropbox = function (kantoData) {
+  const options = document.createElement('option');
+  options.value = kantoData.name;
+  options.innerHTML = kantoData.name;
+  // console.log(options);
+  document.querySelector("#pokeDropbox").appendChild(options);
+}
 
 pokedexApp.pokeInfo = function (poke) {
   const pokeUrl = poke.url;
   fetch(pokeUrl)
-    .then(results => results.json())
-    .then(function (kantoData) {
-      pokedexApp.displayPokemon(kantoData);
+    .then(res => res.json())
+    .then(function (kantoPics) {
+      pokedexApp.displayPokemon(kantoPics);
+      console.log(kantoPics);
     })
 }
 
-pokedexApp.displayPokemon = function (kantoData) {
+pokedexApp.displayPokemon = function (kantoPics) {
   const images = document.createElement("img");
-  images.src = kantoData.sprites.front_default;
-  images.alt = kantoData.name;
+  images.src = kantoPics.sprites.front_default;
+  images.alt = kantoPics.name;
   // console.log(images);
   document.querySelector("#pokemon").appendChild(images);
 }
+pokedexApp.getUserInput = function () {
+  document.querySelector("#pokeDropbox").addEventListener("change", function () {
+    const pokemon = this.value;
+    // console.log(pokemon)
+    pokedexApp.getGen1Pokemon(poke);
+  });
+};
+
+
 
   // fetch(pokemon)
   // .then( function (results){
@@ -40,24 +65,10 @@ pokedexApp.displayPokemon = function (kantoData) {
   //   console.log(pokeName)
   // })
 
-pokedexApp.getThePokemon = function (pokemonArray) {
-  pokemonArray.results.forEach(function (pokemonObject) {
-    console.log(pokemonObject);
-    pokedexApp.getPokeNames(pokemonObject);
-  });
-};
-
-pokedexApp.getPokeNames = function (pokemonObject) {
-  const pokemon = pokemonObject.name;
-  // console.log(pokemon);
-  const pokeName = document.createElement('p');
-  pokemonObject
-};
-
 // init method to kick things off
 pokedexApp.init = function () {
-  console.log("init success");
   pokedexApp.getGen1Pokemon();
+  pokedexApp.getUserInput();
 }
 
 pokedexApp.init();
