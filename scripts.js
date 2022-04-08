@@ -22,27 +22,38 @@ pokedexApp.getGen1Pokemon = function () {
 pokedexApp.pokeInfo = function (poke) {
   const pokeUrl = poke.url;
   fetch(pokeUrl)
-    .then(results => results.json())
-    .then(function (kantoData) {
-      pokedexApp.displayPokemon(kantoData);
+  .then(results => results.json())
+  .then(function (kantoData) {
+      // pokedexApp.displayPokemon(kantoData);
       pokedexApp.pokeDropbox(kantoData);
       // console.log(kantoData);
     })
-}
+  }
 
-// Appending pokemon names into dropbox
-pokedexApp.pokeDropbox = function (kantoData) {
-  const options = document.createElement('option')
-  options.value = kantoData.name
-  options.innerHTML = kantoData.name
+  // Appending pokemon names into dropbox
+  pokedexApp.pokeDropbox = function (kantoData) {
+    const options = document.createElement('option')
+    options.value = kantoData.name
+    options.innerHTML = kantoData.name
 
-  // console.log(options);
-  document.querySelector("#pokeDropbox").appendChild(options);
+    // console.log(options);
+    document.querySelector("#pokeDropbox").appendChild(options);
+    pokedexApp.getUserInput();
 
-}
+  }
+  // function to get user input
+  pokedexApp.getUserInput = function () {
+    document.querySelector("#pokeDropbox").addEventListener("change", function () {
+      const pokemon = this.value;
+      console.log(pokemon)
+      // >>>>>>>>>> BREAKS HERE
+      pokedexApp.singleGen1Pokemon(pokemon);
+    });
 
-// grabs single pokemon
-pokedexApp.singleGen1Pokemon = function (query) {
+  };
+
+  // grabs single pokemon
+  pokedexApp.singleGen1Pokemon = function (query) {
   const url = new URL ("https://pokeapi.co/api/v2/pokemon/");
 
   url.search = new URLSearchParams({
@@ -55,8 +66,8 @@ pokedexApp.singleGen1Pokemon = function (query) {
     .then(function (jsonResults) {
       // WE DONT WANT FOR EACH ONLY ONE RESULT
       jsonResults.results.forEach(function (poke) {
-        // pokedexApp.pokeInfo2(poke);
-        // console.log(poke)
+        pokedexApp.pokeInfo2(poke);
+        console.log(poke)
       });
     });
 };
@@ -109,22 +120,12 @@ pokedexApp.getThePokemon = function (pokemonArray) {
 
 
 
-// function to get user input
-pokedexApp.getUserInput = function () {
-  document.querySelector("#pokeDropbox").addEventListener("change", function () {
-    const pokemon = this.value;
-    // console.log(pokemon)
-    pokedexApp.singleGen1Pokemon(pokemon);
-  });
-
-};
 
 
 // init method to kick things off
 pokedexApp.init = function () {
   console.log("init success");
   pokedexApp.getGen1Pokemon(pokemon);
-  pokedexApp.getUserInput();
 }
 
 pokedexApp.init();
