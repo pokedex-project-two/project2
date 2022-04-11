@@ -37,13 +37,13 @@ pokedexApp.pokeInfo = function (poke) {
     options.innerHTML = kantoData.name
 
     // console.log(options);
-    document.querySelector("#pokeDropbox").appendChild(options);
+    document.querySelector("#poke-dropbox").appendChild(options);
     pokedexApp.getUserInput();
 
   }
   // function to get user input
   pokedexApp.getUserInput = function () {
-    document.querySelector("#pokeDropbox").addEventListener("change", function () {
+    document.querySelector("#poke-dropbox").addEventListener("change", function () {
       const pokemon = this.value;
       console.log(pokemon)
       // >>>>>>>>>> BREAKS HERE

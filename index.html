@@ -48,21 +48,45 @@
       </div>
     </section>
 
-    <section class="dropbox" id="selectPokemon">
+    <section class="pokemon-display" id="selectPokemon">
       <div class="wrapper">
-        <h2>Choose a pokemon!</h2>
-        <form action="">
-          <select name="pokemon" id="pokeDropbox">
-            <!-- Options are inputed from API -->
+        <div class="pd-container">
 
-          </select>
-        </form>
-        <ul id="pokemon">
-          <h2>Bulbasaur</h2>
-          <p>Grass</p>
-          <img src="./assets/bulb.png" alt="bulbasaur pokemon">
-          <!-- Image of pokemon displayed depending on user input -->
-        </ul>
+          <div class="dropbox-container">
+            <h2>Choose a pokemon!</h2>
+            <form action="">
+              <select name="pokemon" id="poke-dropbox">
+                <!-- Options are inputed from API -->
+              </select>
+            </form>
+          </div>
+
+
+
+
+          <div class="pokemon-container">
+            <ul id="pokemon">
+              <h2>Bulbasaur</h2>
+              <p>Grass</p>
+              <div class="pokemon-sprite">
+                <img src="./assets/bulb.png" alt="bulbasaur pokemon">
+              </div>
+              <div class="poke-id">
+                <p>#1</p>
+              </div>
+              <!-- Image of pokemon displayed depending on user input -->
+            </ul>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
       </div>
     </section>
 

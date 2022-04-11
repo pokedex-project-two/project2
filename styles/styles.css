@@ -1,10 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
-.wrapper {
-  max-width: 1200px;
-  width: 90%;
-  margin: 0 auto;
-}
-
 html {
   font-size: 125%;
   overflow-x: hidden;
@@ -267,11 +261,14 @@ html {
   overflow: hidden;
 }
 
+.wrapper {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
 header {
-  background-image: url("../assets/pokemon-background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
+  background-color: #E2F0CB;
 }
 
 .header-text {
@@ -292,7 +289,7 @@ nav {
   line-height: 1.45rem;
   letter-spacing: 1px;
   text-transform: uppercase;
-  background-color: #ff0000;
+  background-color: #C7CEEA;
 }
 nav ul {
   display: -webkit-box;
@@ -329,17 +326,93 @@ a {
 .about {
   padding: 275px 0;
   text-align: center;
-  background-color: #0011ff;
-  color: #ffffff;
+  background-color: #B5EAD7;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  color: black;
 }
 .about p {
   text-align: center;
   margin: 50px 0;
 }
 
+.pokemon-display {
+  background-image: url("../assets/pokemon-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding: 150px;
+}
+
+.pd-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 100px 100px 60px;
+}
+
+.dropbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#poke-dropbox {
+  margin-left: 25px;
+}
+
+.pokemon-container {
+  position: relative;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.pokemon-sprite {
+  height: 400px;
+  width: 400px;
+  padding-top: 10px;
+}
+
+.pokemon-container img {
+  height: 100%;
+}
+
+.poke-id {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  font-size: 1.7rem;
+}
+
+#pokemon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+}
+
 .contact {
   padding: 200px 0;
-  background-color: #ff0000;
+  background-color: #FFB7B2;
   font-size: 2rem;
 }
 .contact .wrapper {
@@ -367,9 +440,10 @@ a {
 }
 
 footer {
-  background-color: #009921;
+  background-color: #FFFDD0;
   font-size: 0.8rem;
   color: #ffffff;
   text-align: center;
   padding: 20px 0;
+  color: black;
 }
