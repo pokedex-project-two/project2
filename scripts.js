@@ -19,7 +19,7 @@ pokedexApp.getGen1Pokemon = function () {
 };
 // Grabbing all gen 1 pokemon info
 pokedexApp.pokeInfo = function (poke) {
-  console.log(poke);
+  // console.log(poke);
   const pokeUrl = poke.url;
   fetch(pokeUrl)
   .then(results => results.json())
@@ -66,11 +66,11 @@ pokedexApp.pokeInfo = function (poke) {
   // Getting only 1 pokemon's information
   fetch(url)
     .then(function (results) {
-      console.log(results);
+      // console.log(results);
       return results.json();
     })
     .then(function (jsonResults) {
-      console.log(jsonResults);
+      // console.log(jsonResults);
       pokedexApp.displayPokemon(jsonResults);
 
     });
@@ -78,12 +78,29 @@ pokedexApp.pokeInfo = function (poke) {
 
 // displaying pokemon details into div
 pokedexApp.displayPokemon = function (kantoData) {
+
   document.querySelector("#pokemon").innerHTML = "";
   const name = document.createElement('h2')
   name.innerHTML = kantoData.name;
 
+
   const type = document.createElement('p')
-  type.innerText = kantoData.types[0].type.name;
+  let typeText = "";
+  kantoData.types.forEach( (index) => {
+    typeText = typeText.concat(index.type.name, " ");
+  })
+
+  type.innerText = typeText;
+
+
+  // if (kantoData.types.length === 1) {
+  //   type.innerText = kantoData.types[0].type.name;
+  // }
+  // else {
+  //   type.innerText = `${kantoData.types[0].type.name} ${kantoData.types[1].type.name}`
+  // }
+
+  // type.innerText = kantoData.types[1].type.name;
 
   const pokeId = document.createElement('p')
   pokeId.innerText = `#${kantoData.id}`;
@@ -93,7 +110,7 @@ pokedexApp.displayPokemon = function (kantoData) {
 
   // needs to add both types
 
-  console.log(type)
+  // console.log(type)
 
   const images = document.createElement("img");
   images.src = kantoData.sprites.front_default;
@@ -105,7 +122,7 @@ pokedexApp.displayPokemon = function (kantoData) {
   divSprite.appendChild(images);
 
   const div = document.createElement('div');
-  div.classList.add('pokemon-container');
+  div.classList.add('pokemon-content');
 
   div.appendChild(name);
   div.appendChild(type);
