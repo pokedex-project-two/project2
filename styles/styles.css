@@ -262,10 +262,22 @@ html {
   overflow: hidden;
 }
 
-.wrapper {
+.wrapper, .wrapper-contact {
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
+}
+
+.wrapper-contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header {
@@ -276,6 +288,10 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -286,7 +302,7 @@ header {
 }
 
 nav {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.45rem;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -322,20 +338,6 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-.about {
-  padding: 275px 0;
-  text-align: center;
-  background-color: #B5EAD7;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
-  color: black;
-}
-.about p {
-  text-align: center;
-  margin: 50px 0;
 }
 
 .pokemon-display {
@@ -377,6 +379,17 @@ a {
   position: relative;
   background-color: white;
   border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-transform: capitalize;
 }
 
 .pokemon-sprite {
@@ -393,7 +406,6 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 25px;
   font-size: 1.7rem;
 }
 
@@ -411,10 +423,24 @@ a {
   padding: 20px;
 }
 
+.about {
+  padding: 275px 0;
+  text-align: center;
+  background-color: #B5EAD7;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  color: black;
+}
+.about p {
+  text-align: center;
+  margin: 50px 0;
+}
+
 .contact {
   padding: 200px 0;
   background-color: #FFB7B2;
-  font-size: 2rem;
+  font-size: 2em;
 }
 .contact .wrapper {
   display: -webkit-box;
