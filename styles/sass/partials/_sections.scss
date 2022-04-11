@@ -1,0 +1,116 @@
+
+// pokemon display section
+.pokemon-display {
+  background-image: url('../assets/pokemon-background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding: 150px;
+}
+
+.pd-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 100px 100px 60px;
+}
+
+.dropbox-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#poke-dropbox{
+  margin-left: 25px;
+}
+
+.pokemon-container{
+  position: relative;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+  background-color: white;
+}
+
+.pokemon-content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon-sprite{
+  height: 250px;
+  width: 250px;
+  padding-top: 10px;
+}
+
+.pokemon-container img{
+  height: 100%
+}
+
+.poke-id{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.7rem;
+}
+
+#pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-width: 440px;
+  min-height: 497.5px;
+}
+// about section
+.about {
+
+    padding: 275px 0;
+    text-align: center;
+    background-color: $magicMint;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    color: black;
+
+    p {
+        text-align: center;
+        margin: 50px 0;
+    }
+}
+
+// contact section
+.contact {
+  padding: 200px 0;
+  background-color: $melon;
+  font-size: 2em;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a {
+    font-size: 2.5rem;
+    margin-right: 30px;
+    transition: 0.5s;
+
+    &:hover,
+    &:focus {
+      color: $tertiary;
+    }
+  }
+
+  .contactEmail {
+    margin: 30px 0;
+  }
+}

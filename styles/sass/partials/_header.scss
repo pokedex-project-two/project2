@@ -1,0 +1,16 @@
+header {
+  // background-image: url('../assets/pokemon-background.png');
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: bottom;
+      background-color: $dirtyWhite;
+
+}
+
+.header-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 325px;
+}
