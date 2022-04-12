@@ -510,7 +510,7 @@ footer {
 }
 
 /* Portrait tablet and small desktops */
-@media (max-width: 940px) {
+@media (max-width: 960px) {
   .pokemon-display {
     padding: 150px 0;
   }
