@@ -7,10 +7,8 @@ header {
 
 }
 
-.header-text{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 325px;
+.header-text {
+  font-size: 2rem;
+  text-align: center;
+  padding: 250px;
 }
