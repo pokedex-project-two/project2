@@ -35,6 +35,14 @@
   text-transform: capitalize;
   background-color: white;
 }
+#pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-width: 440px;
+  min-height: 497.5px;
+}
 
 .pokemon-content{
   height: 100%;
@@ -62,14 +70,12 @@
   font-size: 1.7rem;
 }
 
-#pokemon {
+.pokemon-size {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  min-width: 440px;
-  min-height: 497.5px;
+  width: 100%;
+  justify-content: space-around;
 }
+
 // about section
 .about {
 

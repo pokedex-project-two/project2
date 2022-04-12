@@ -53,7 +53,6 @@ pokedexApp.pokeInfo = function (poke) {
     document.querySelector("#poke-dropbox").addEventListener("change", function () {
       const pokemon = this.value;
       // console.log(pokemon)
-      // >>>>>>>>>> BREAKS HERE
       pokedexApp.singleGen1Pokemon(pokemon);
     });
 
@@ -78,49 +77,52 @@ pokedexApp.pokeInfo = function (poke) {
 
 // displaying pokemon details into div
 pokedexApp.displayPokemon = function (kantoData) {
-
+  // Pokemon Name
   document.querySelector("#pokemon").innerHTML = "";
   const name = document.createElement('h2')
   name.innerHTML = kantoData.name;
 
-
+  // Pokemon Type
   const type = document.createElement('p')
   let typeText = "";
   kantoData.types.forEach( (index) => {
     typeText = typeText.concat(index.type.name, " ");
   })
-
   type.innerText = typeText;
 
-
-  // if (kantoData.types.length === 1) {
-  //   type.innerText = kantoData.types[0].type.name;
-  // }
-  // else {
-  //   type.innerText = `${kantoData.types[0].type.name} ${kantoData.types[1].type.name}`
-  // }
-
-  // type.innerText = kantoData.types[1].type.name;
-
+  // Pokemon ID
   const pokeId = document.createElement('p')
-  pokeId.innerText = `#${kantoData.id}`;
+  const pokeIdNumber = kantoData.id.toString().padStart(3, '0');
+  pokeId.innerText = `#${pokeIdNumber}`;
+
   const divId = document.createElement('div')
   divId.classList.add('poke-id')
   divId.appendChild(pokeId);
 
-  // needs to add both types
-
-  // console.log(type)
-
+  // pokemon Image Sprites
   const images = document.createElement("img");
   images.src = kantoData.sprites.front_default;
   images.alt = kantoData.name;
-  // console.log(images);
-  // document.querySelector("#pokemon").appendChild(images);
+
   const divSprite = document.createElement('div')
   divSprite.classList.add('pokemon-sprite')
   divSprite.appendChild(images);
+  // Pokemon Size
+  const height = document.createElement('p')
+  height.innerText = `HEIGHT: ${kantoData.height * 10}cm`;
 
+  const weight = document.createElement("p");
+  weight.innerText = `WEIGHT: ${kantoData.weight / 10}kg`
+
+
+
+  const divSize = document.createElement('div')
+  divSize.classList.add('pokemon-size')
+  divSize.appendChild(height);
+  divSize.appendChild(weight);
+
+
+  // Creating Div and appending all Elements
   const div = document.createElement('div');
   div.classList.add('pokemon-content');
 
@@ -128,6 +130,7 @@ pokedexApp.displayPokemon = function (kantoData) {
   div.appendChild(type);
   div.appendChild(divSprite);
   div.appendChild(divId)
+  div.appendChild(divSize)
 
   document.querySelector("#pokemon").appendChild(div);
 }
