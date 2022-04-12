@@ -381,6 +381,7 @@ a {
 
 #poke-dropbox {
   margin-left: 25px;
+  text-transform: capitalize;
 }
 
 .pokemon-container {
