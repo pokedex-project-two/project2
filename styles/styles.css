@@ -25,6 +25,14 @@ ul, li, a, input {
   margin: 0;
 }
 
+.pokemon-content p {
+  font-size: 1.2rem;
+}
+
+.pokemon-content h2 {
+  font-size: 2.3rem;
+}
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -427,8 +435,8 @@ a {
 }
 
 .pokemon-sprite {
-  height: 250px;
-  width: 250px;
+  height: 225px;
+  width: 225px;
   padding-top: 10px;
 }
 
