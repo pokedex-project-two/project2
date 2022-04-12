@@ -2,50 +2,15 @@
 const pokedexApp = {};
 
 // Initalize preset data
-<<<<<<< HEAD
-
-pokedexApp.getGen1Pokemon = function (query) {
-  const url = new URL("https://pokeapi.co/api/v2/pokemon?limit=151/");
-
-  url.search = new URLSearchParams({
-    q: query
-  })
-=======
 // grabs all gen 1 pokemon
 pokedexApp.getGen1Pokemon = function () {
   const url = "https://pokeapi.co/api/v2/pokemon?limit=151/";
->>>>>>> main
 
   fetch(url)
     .then(function (results) {
       return results.json();
     })
     .then(function (jsonResults) {
-<<<<<<< HEAD
-      jsonResults.results.forEach(function (kantoData) {
-        pokedexApp.pokeDropbox(kantoData);
-        // console.log(kantoData);
-      })
-        pokedexApp.pokeInfo(jsonResults);
-    });
-};
-
-pokedexApp.pokeDropbox = function (kantoData) {
-  const options = document.createElement('option');
-  options.value = kantoData.name;
-  options.innerHTML = kantoData.name;
-  // console.log(options);
-  document.querySelector("#pokeDropbox").appendChild(options);
-}
-
-pokedexApp.pokeInfo = function (poke) {
-  const pokeUrl = poke.url;
-  fetch(pokeUrl)
-    .then(res => res.json())
-    .then(function (kantoPics) {
-      pokedexApp.displayPokemon(kantoPics);
-      console.log(kantoPics);
-=======
       jsonResults.results.forEach(function (poke) {
         pokedexApp.pokeInfo(poke);
         // console.log(poke)
@@ -62,13 +27,9 @@ pokedexApp.pokeInfo = function (poke) {
       // pokedexApp.displayPokemon(kantoData);
       pokedexApp.pokeDropbox(kantoData);
       // console.log(kantoData);
->>>>>>> main
     })
   }
 
-<<<<<<< HEAD
-pokedexApp.displayPokemon = function (kantoPics) {
-=======
   // Appending pokemon names into dropbox
   pokedexApp.pokeDropbox = function (kantoData) {
     const options = document.createElement('option')
@@ -192,7 +153,6 @@ pokedexApp.displayPokemon = function (kantoData) {
 
   console.log(type)
 
->>>>>>> main
   const images = document.createElement("img");
   images.src = kantoPics.sprites.front_default;
   images.alt = kantoPics.name;
@@ -219,8 +179,6 @@ pokedexApp.getUserInput = function () {
 
 
 
-<<<<<<< HEAD
-=======
 // Grabbing all gen 1 pokemon information
 pokedexApp.getThePokemon = function (pokemonArray) {
   pokemonArray.results.forEach(function (pokemonObject) {
@@ -290,15 +248,11 @@ pokedexApp.displayPokemon = function (kantoData) {
 
 
 
->>>>>>> main
 // init method to kick things off
 pokedexApp.init = function () {
   pokedexApp.getGen1Pokemon();
   pokedexApp.getUserInput();
-<<<<<<< HEAD
-=======
   pokedexApp.getGen1Pokemon(pokemon);
->>>>>>> main
 }
 
 pokedexApp.init();
