@@ -2,6 +2,7 @@
 const pokedexApp = {};
 
 // Initalize preset data
+<<<<<<< HEAD
 
 pokedexApp.getGen1Pokemon = function (query) {
   const url = new URL("https://pokeapi.co/api/v2/pokemon?limit=151/");
@@ -9,12 +10,18 @@ pokedexApp.getGen1Pokemon = function (query) {
   url.search = new URLSearchParams({
     q: query
   })
+=======
+// grabs all gen 1 pokemon
+pokedexApp.getGen1Pokemon = function () {
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=151/";
+>>>>>>> main
 
   fetch(url)
     .then(function (results) {
       return results.json();
     })
     .then(function (jsonResults) {
+<<<<<<< HEAD
       jsonResults.results.forEach(function (kantoData) {
         pokedexApp.pokeDropbox(kantoData);
         // console.log(kantoData);
@@ -38,15 +45,168 @@ pokedexApp.pokeInfo = function (poke) {
     .then(function (kantoPics) {
       pokedexApp.displayPokemon(kantoPics);
       console.log(kantoPics);
+=======
+      jsonResults.results.forEach(function (poke) {
+        pokedexApp.pokeInfo(poke);
+        // console.log(poke)
+      })
+        // console.log(poke)
     })
-}
+};
+// Grabbing all gen 1 pokemon info
+pokedexApp.pokeInfo = function (poke) {
+  const pokeUrl = poke.url;
+  fetch(pokeUrl)
+  .then(results => results.json())
+  .then(function (kantoData) {
+      // pokedexApp.displayPokemon(kantoData);
+      pokedexApp.pokeDropbox(kantoData);
+      // console.log(kantoData);
+>>>>>>> main
+    })
+  }
 
+<<<<<<< HEAD
 pokedexApp.displayPokemon = function (kantoPics) {
+=======
+  // Appending pokemon names into dropbox
+  pokedexApp.pokeDropbox = function (kantoData) {
+    const options = document.createElement('option')
+    options.value = kantoData.name
+    options.innerHTML = kantoData.name
+
+    // console.log(options);
+    document.querySelector("#pokeDropbox").appendChild(options);
+    pokedexApp.getUserInput();
+
+  }
+  // function to get user input
+  pokedexApp.getUserInput = function () {
+    document.querySelector("#pokeDropbox").addEventListener("change", function () {
+      const pokemon = this.value;
+      console.log(pokemon)
+      // >>>>>>>>>> BREAKS HERE
+      pokedexApp.singleGen1Pokemon(pokemon);
+    });
+
+  };
+
+  // grabs single pokemon
+  pokedexApp.singleGen1Pokemon = function (query) {
+  const url = new URL ("https://pokeapi.co/api/v2/pokemon/");
+
+  url.search = new URLSearchParams({
+    q: query,
+  });
+  fetch(url)
+    .then(function (results) {
+      return results.json();
+    })
+    .then(function (jsonResults) {
+      // WE DONT WANT FOR EACH ONLY ONE RESULT
+      jsonResults.results.forEach(function (poke) {
+        pokedexApp.pokeInfo2(poke);
+        console.log(poke)
+      });
+    });
+};
+// Getting only 1 pokemon's information
+pokedexApp.pokeInfo2 = function (poke) {
+  const pokeUrl = poke.url;
+  fetch(pokeUrl)
+    .then((results) => results.json())
+    .then(function (kantoData) {
+      // pokedexApp.displayPokemon(kantoData);
+
+    });
+};
+// Grabbing all gen 1 pokemon info
+pokedexApp.pokeInfo = function (poke) {
+  // console.log(poke);
+  const pokeUrl = poke.url;
+  fetch(pokeUrl)
+  .then(results => results.json())
+  .then(function (kantoData) {
+      pokedexApp.pokeDropbox(kantoData);
+      // console.log(kantoData);
+    })
+  }
+
+
+  // Appending pokemon names into dropbox
+  pokedexApp.pokeDropbox = function (kantoData) {
+    const options = document.createElement('option')
+    options.value = kantoData.name
+    options.innerHTML = kantoData.name
+
+    // console.log(options);
+    document.querySelector("#poke-dropbox").appendChild(options);
+    // pokedexApp.getUserInput();
+  }
+
+
+
+
+
+
+
+
+
+  // function to get user input
+  pokedexApp.getUserInput = function () {
+    document.querySelector("#poke-dropbox").addEventListener("change", function () {
+      const pokemon = this.value;
+      // console.log(pokemon)
+      // >>>>>>>>>> BREAKS HERE
+      pokedexApp.singleGen1Pokemon(pokemon);
+    });
+
+  };
+
+  // grabs single pokemon
+  pokedexApp.singleGen1Pokemon = function (query) {
+  const url = new URL (`https://pokeapi.co/api/v2/pokemon/${query}`);
+
+  // Getting only 1 pokemon's information
+  fetch(url)
+    .then(function (results) {
+      // console.log(results);
+      return results.json();
+    })
+    .then(function (jsonResults) {
+      // console.log(jsonResults);
+      pokedexApp.displayPokemon(jsonResults);
+
+    });
+};
+
+// displaying pokemon details into div
+pokedexApp.displayPokemon = function (kantoData) {
+  const name = document.createElement('h2')
+  name.innerHTML = kantoData.name;
+
+  const type = document.createElement('p')
+  type.innerText = kantoData.types[0].type.name
+
+  // needs to add both types
+
+  console.log(type)
+
+>>>>>>> main
   const images = document.createElement("img");
   images.src = kantoPics.sprites.front_default;
   images.alt = kantoPics.name;
   // console.log(images);
-  document.querySelector("#pokemon").appendChild(images);
+  // document.querySelector("#pokemon").appendChild(images);
+
+  const div = document.createElement('div');
+  div.classList.add('pokemonContainer');
+
+  div.appendChild(name);
+  div.appendChild(type);
+  div.appendChild(images);
+
+  document.querySelector("#pokemon").appendChild(div);
 }
 pokedexApp.getUserInput = function () {
   document.querySelector("#pokeDropbox").addEventListener("change", function () {
@@ -58,20 +218,91 @@ pokedexApp.getUserInput = function () {
 
 
 
-  // fetch(pokemon)
-  // .then( function (results){
-  //   return results.json();
-  // }).then (function (pokeName){
-  //   console.log(pokeName)
-  // })
 
+<<<<<<< HEAD
+=======
+// Grabbing all gen 1 pokemon information
+pokedexApp.getThePokemon = function (pokemonArray) {
+  pokemonArray.results.forEach(function (pokemonObject) {
+    console.log(pokemonObject);
+    pokedexApp.getPokeNames(pokemonObject);
+  });
+};
+
+
+
+
+// displaying pokemon details into div
+pokedexApp.displayPokemon = function (kantoData) {
+
+  document.querySelector("#pokemon").innerHTML = "";
+  const name = document.createElement('h2')
+  name.innerHTML = kantoData.name;
+
+
+  const type = document.createElement('p')
+  let typeText = "";
+  kantoData.types.forEach( (index) => {
+    typeText = typeText.concat(index.type.name, " ");
+  })
+
+  type.innerText = typeText;
+
+
+  // if (kantoData.types.length === 1) {
+  //   type.innerText = kantoData.types[0].type.name;
+  // }
+  // else {
+  //   type.innerText = `${kantoData.types[0].type.name} ${kantoData.types[1].type.name}`
+  // }
+
+  // type.innerText = kantoData.types[1].type.name;
+
+  const pokeId = document.createElement('p')
+  pokeId.innerText = `#${kantoData.id}`;
+  const divId = document.createElement('div')
+  divId.classList.add('poke-id')
+  divId.appendChild(pokeId);
+
+  // needs to add both types
+
+  // console.log(type)
+
+  const images = document.createElement("img");
+  images.src = kantoData.sprites.front_default;
+  images.alt = kantoData.name;
+  // console.log(images);
+  // document.querySelector("#pokemon").appendChild(images);
+  const divSprite = document.createElement('div')
+  divSprite.classList.add('pokemon-sprite')
+  divSprite.appendChild(images);
+
+  const div = document.createElement('div');
+  div.classList.add('pokemon-content');
+
+  div.appendChild(name);
+  div.appendChild(type);
+  div.appendChild(divSprite);
+  div.appendChild(divId)
+
+  document.querySelector("#pokemon").appendChild(div);
+}
+
+
+
+>>>>>>> main
 // init method to kick things off
 pokedexApp.init = function () {
   pokedexApp.getGen1Pokemon();
   pokedexApp.getUserInput();
+<<<<<<< HEAD
+=======
+  pokedexApp.getGen1Pokemon(pokemon);
+>>>>>>> main
 }
 
 pokedexApp.init();
+
 
 //  Landing page with heading pokedexApp
 

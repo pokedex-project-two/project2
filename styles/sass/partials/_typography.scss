@@ -1,0 +1,30 @@
+html{
+  font-size: 125%;
+  overflow-x: hidden;
+  border: none;
+  scroll-behavior: smooth;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+body, h1,h2,h3, p{
+  font-family: $vt323;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+ul, li, a, input {
+    padding: 0;
+    margin: 0;
+}
+
