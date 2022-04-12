@@ -13,14 +13,10 @@ pokedexApp.getGen1Pokemon = function () {
     .then(function (jsonResults) {
       jsonResults.results.forEach(function (poke) {
         pokedexApp.pokeInfo(poke);
-
         // console.log(poke)
       })
-
-
         // console.log(poke)
-      })
-    });
+    })
 };
 // Grabbing all gen 1 pokemon info
 pokedexApp.pokeInfo = function (poke) {
