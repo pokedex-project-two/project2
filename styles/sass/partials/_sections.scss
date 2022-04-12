@@ -22,8 +22,15 @@
   align-items: center;
 }
 
+
+#poke-dropbox{
+  margin-left: 25px;
+  text-transform: capitalize;
+}
+
 form {
   width: 100%;
+
 
   #poke-dropbox {
     width: 100%;
@@ -49,6 +56,14 @@ form {
   background-color: white;
   border: 2px solid black;
 }
+#pokemon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-width: 440px;
+  min-height: 497.5px;
+}
 
 .pokemon-content{
   height: 100%;
@@ -59,9 +74,10 @@ form {
   align-items: center;
 }
 
+
 .pokemon-sprite{
-  height: 250px;
-  width: 250px;
+  height: 225px;
+  width: 225px;
   padding-top: 10px;
 }
 
@@ -76,14 +92,12 @@ form {
   font-size: 1.7rem;
 }
 
-#pokemon {
+.pokemon-size {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  min-width: 440px;
-  min-height: 497.5px;
+  width: 100%;
+  justify-content: space-around;
 }
+
 // about section
 .about {
 
