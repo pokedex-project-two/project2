@@ -19,16 +19,21 @@ body, h1,h2,h3, p{
   font-family: $vt323;
 }
 
+h2 {
+  font-size: 3rem;
+}
+
 ul, li, a, input {
     padding: 0;
     margin: 0;
 }
 
 .pokemon-content p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
-.pokemon-content h2{
-  font-size: 2.3rem;
+.pokemon-content h3{
+  font-size: 2.5rem;
 }
+
 

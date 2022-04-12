@@ -79,7 +79,7 @@ pokedexApp.pokeInfo = function (poke) {
 pokedexApp.displayPokemon = function (kantoData) {
   // Pokemon Name
   document.querySelector("#pokemon").innerHTML = "";
-  const name = document.createElement('h2')
+  const name = document.createElement('h3')
   name.innerHTML = kantoData.name;
 
   // Pokemon Type
